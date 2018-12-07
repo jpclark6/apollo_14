@@ -1,0 +1,13 @@
+<h1>Astronauts</h1>
+<% @astronauts.each do |astronaut| %>
+<div id='astronaut-<%= astronaut.id %>'>
+  <h2>Name: <%= astronaut.name %></h2>
+  <h3>Age: <%= astronaut.age %></h3>
+  <h3>Job: <%= astronaut.job %></h3>
+  <h3>Total Time In Space: </h3>
+  <h4>Missions: </h4>
+  <% astronaut.missions.order(:title).each do |mission| %>
+  <h4><%= mission.title %></h4>
+  <% end %>
+</div>
+<% end %>

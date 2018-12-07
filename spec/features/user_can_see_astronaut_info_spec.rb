@@ -45,6 +45,7 @@ describe 'as a user' do
         expect(page).to have_content(@title_1)
         expect(page).to have_no_content(@title_2)
       end
+      save_and_open_page
     end
 
     it 'can see total time in space for each astronaut' do
@@ -54,12 +55,18 @@ describe 'as a user' do
       total_time_2 = @time_1
 
       within "#astronaut-#{@astronaut_1.id}" do
-        expect(page).to have_content("Total time in space: #{total_time_1}")
+        expect(page).to have_content("Total time in space: #{total_time_1} days")
       end
 
       within "#astronaut-#{@astronaut_2.id}" do
-        expect(page).to have_content("Total time in space: #{total_time_2}")
+        expect(page).to have_content("Total time in space: #{total_time_2} days")
       end
+    end
+
+    it 'can see the average age of all astronauts' do
+      visit astronauts_path
+      average_age = (@age_1 + @age_2) / 2
+      expect(page).to have_content("Average age: #{average_age}")
     end
   end
 end

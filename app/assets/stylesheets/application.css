@@ -13,3 +13,50 @@
  *= require_tree .
  *= require_self
  */
+
+
+html {
+  background-image: url("https://www.australiangeographic.com.au/wp-content/uploads/2018/06/stars1.jpg");
+  background-color: black;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body {
+  width: 800px;
+  margin: auto;
+  color: white;
+  padding: 30px;
+  font-size: 36px;
+  font-family: "Arial", "Helvetica", "sans-serif";
+}
+
+h1 {
+  font-size: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 80%;
+  padding: 10px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 70%;
+  padding: 10px;
+}
+
+h4 {
+  font-size: 60%;
+  padding: 10px;
+}
+
+.astronaut {
+  margin: 30px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+}

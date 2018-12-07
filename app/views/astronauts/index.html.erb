@@ -1,13 +1,17 @@
-<h1>Astronauts</h1>
-<% @astronauts.each do |astronaut| %>
-<div id='astronaut-<%= astronaut.id %>'>
-  <h2>Name: <%= astronaut.name %></h2>
-  <h3>Age: <%= astronaut.age %></h3>
-  <h3>Job: <%= astronaut.job %></h3>
-  <h3>Total Time In Space: </h3>
-  <h4>Missions: </h4>
-  <% astronaut.missions.order(:title).each do |mission| %>
-  <h4><%= mission.title %></h4>
+<div class='astronaut-info'>
+  <h1>Astronauts</h1>
+  <h2>Average age: <%= @average_age %></h2>
+  <% @astronauts.each do |astronaut| %>
+  <div class='astronaut' id='astronaut-<%= astronaut.id %>'>
+    <h2>Name: <%= astronaut.name %></h2>
+    <h3>Age: <%= astronaut.age %></h3>
+    <h3>Job: <%= astronaut.job %></h3>
+    <h3>Total time in space: <%= astronaut.missions.sum(:time_in_space) %> days</h3>
+    <h4>Missions:
+    <% astronaut.missions.order(:title).each do |mission| %>
+    <%= mission.title %>,
+    <% end %>
+    </h4>
+  </div>
   <% end %>
 </div>
-<% end %>
